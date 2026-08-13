@@ -5,7 +5,7 @@ if [ $# -ne 1 ]; then
 	exit 3
 fi
 
-mkdir -p ./public && rm ./public/* && ln ./index.html ./style.css ./public
+mkdir -p ./public && rm -rf ./public && mkdir ./public && ln ./index.html ./style.css ./public
 
 sed "1 s/SERVERIP/$1/" ./main.js > ./public/main.js
 
