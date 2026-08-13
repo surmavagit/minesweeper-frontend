@@ -7,4 +7,4 @@ fi
 
 sed -i "1 s/SERVERIP/$1/" /usr/share/nginx/html/main.js
 
-nginx -g "[daemon off;]"
+nginx -g "daemon off;"
