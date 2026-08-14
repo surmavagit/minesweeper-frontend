@@ -1,0 +1,25 @@
+.cell {
+	border-color: black;
+	border-width: 2px;
+	border-style: solid;
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	text-align: center;
+}
+
+.closed {
+	background-color: gray;
+}
+
+.bomb {
+	background-color: red;
+}
+
+.flagged {
+	background-color: blue;
+}
+
+#gameBox {
+	position: relative;
+}
