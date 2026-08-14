@@ -11,7 +11,7 @@ async function render() {
 		if (typeof gameId === 'string') {
 			serverResponse = await fetch(serverIp + '/newgame', { method: 'POST', headers: { "Content-Type": "application/json" }, body: JSON.stringify({ gameId: gameId }) });
 		} else {
-			serverResponse = await fetch(serverIp + '/newgame');
+			serverResponse = await fetch(serverIp + '/newgame', { method: 'POST' });
 		};
 		if (serverResponse.ok) {
 			const data = await serverResponse.json();
@@ -95,8 +95,8 @@ function loadGame(data, endGame) {
 
 	const gameBox = document.createElement('div');
 	gameBox.id = 'gameBox';
-	// gameBox.style.height = String(data.length * CELLSIZE) + 'px';
-	// gameBox.style.width = String(data[0].length * CELLSIZE) + 'px';
+	gameBox.style.height = String(data.length * CELLSIZE) + 'px';
+	gameBox.style.width = String(data[0].length * CELLSIZE) + 'px';
 
 
 	data.forEach((row, i) => {
@@ -150,7 +150,7 @@ function loadMenu() {
 function loadError(err) {
 	main.innerHTML = '';
 	const heading = document.createElement('h2');
-	heading.innerText = 'Server error';
+	heading.innerText = 'Error';
 	main.appendChild(heading);
 
 	const description = document.createElement('p');
